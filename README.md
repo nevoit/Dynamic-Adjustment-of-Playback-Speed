@@ -1,6 +1,6 @@
 # Dynamic-Adjustment-of-Playback-Speed
 
-A VLC extension that increases the playback speed between the dialogs.
+A VLC extension increases the playback speed between the dialogs based on the video's subtitle.
 
 The code was initially written by Michele Gaiarin  ([gaiazdev@gmail.com](gaiazdev@gmail.com)) and Simone Gaiarin ([simgunz@gmail.com](simgunz@gmail.com)) and can be found on Github: 
 [Playback Speed Manager](https://github.com/ilgaiaz/playback-speed-manager).
@@ -17,10 +17,7 @@ I forked the project to add more options and improve this extension.
 * Fixing the VLC freezing issue. Every time the playback speed changes, the video freezes for a second. This problem is more noticeable when the difference between the playback speeds is higher (e.g., changing from 1x to 4x, or vice versa). It is a problem with VLC, not with this extension, still frustrating.
 * Writing a regex for music, song title, sound effect description, or more things (?).
 * Adding to option to the user decide whether to ignore the music, song title, or sound effect description or not.
-
- 
- 
-  
+*  
 
 # Playback Speed Manager's README (The Original Repository)
 
