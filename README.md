@@ -10,6 +10,7 @@ I forked the project to add more options and improve this extension.
 * Adding the option to the user to determine the minimum duration between dialogs before speeding up (for example, 10 seconds means that the dialog should be with no subtitles for 10 seconds). Initially, it was defined automatically and statically to 3 seconds (the user could not use this parameter).
 * Ignoring music by skipping subtitles that include the character "♪", which means they consider as "between dialogs".
 * Ignoring square brackets ("[" and "]"), which indicate a song title or sound effect description - consider as "between dialogs".
+* Adding playback speed options of x1.25 and x1.5 in dialogs.
 
 ![modifications](img/modifications.png)
 
