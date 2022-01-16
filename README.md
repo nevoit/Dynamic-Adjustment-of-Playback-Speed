@@ -1,5 +1,13 @@
-# Playback speed manager
+# Dynamic-Adjustment-of-Playback-Speed
 
+The code was initially written by Michele Gaiarin  ([gaiazdev@gmail.com](gaiazdev@gmail.com)) and Simone Gaiarin ([simgunz@gmail.com](simgunz@gmail.com)) and can be found here: 
+[Playback Speed Manager](https://github.com/ilgaiaz/playback-speed-manager).
+I forked the project to add more modifications and improve this excellent extension.
+
+## My Modifications
+
+
+## Original Repository - Playback speed manager
 It was initially developed with the purpose to facilitating a user with the listening of a new language by reducing the speed during a dialogue.  
 It was later modified to use it as the extension [Time Saver](https://addons.videolan.org/content/show.php?content=169314) (that is no more available on VLC 3.0).
 
@@ -10,7 +18,7 @@ So now this VLC Addon give the possibility to :
 
 The developed code was obtained starting from the work of the user "mederi" which can be found [here](https://addons.videolan.org/p/1154032/).
 
-# Installation
+## Installation
 Put the file `playback_speed_manager.lua` in :  
 
 - **Windows (all users)**
@@ -57,7 +65,7 @@ At the end, restart VLC.
 
 Note: create the directories if they do not exist.
 
-# How to use
+## How to use
 Rename the subtitle file with the name of the video and place it in the same folder.
 Open the desired video, go to "view" and select the "slowsub" extension.
 
@@ -78,7 +86,7 @@ This procedure is required to enable the script `psm_looper_intf.lua`. From this
 Every time VLC or the extension is closed the parameters are set to the standard value. If you want to completely disable the extension (in particular the script `psm_looper_intf.lua`), you must uncheck the "Loop interface" checkbox, confirm and restart VLC.  
 To re-enable the extension it is necessary to follow what is explained in the section "First use".
 
-# Interface
+## Interface
 Below is possible to see a preview of the interface.
 
 ![EnableInterface](img/enable_int.png)
