@@ -25,7 +25,7 @@ INSTALLATION directory:
 
 -- Constants
 UTF8BOM = string.char(0xEF, 0xBB, 0xBF)
-MAXTIMEDIFFERENCE = 3 --Time in seconds
+--MAXTIMEDIFFERENCE = 3 --Time in seconds
 --NORMALRATE = 1.0
 
 -- Global variables
@@ -53,11 +53,15 @@ function load_subtitles()
     --Find string match for find time value in the srt file
     for h1, m1, s1, ms1, h2, m2, s2, ms2, text in string.gmatch(data, srt_pattern) do
         --If the text is empty then add a space
-        if text == "" then
-            text ="  "
+        if text:find('%[') and text:find('%]') then
+            vlc.msg.dbg("continued since the text is: "..text)
+        else
+            if text == "" then
+                text ="  "
+            else --Add value start/stop time and text in the table subtitles
+                table.insert(subtitles, {format_time(h1, m1, s1, ms1), format_time(h2, m2, s2, ms2), text})
+            end
         end
-        --Add value start/stop time and text in the table subtitles
-        table.insert(subtitles, {format_time(h1, m1, s1, ms1), format_time(h2, m2, s2, ms2), text})
     end
     if #subtitles ~= 0 then
         return true
@@ -88,6 +92,7 @@ function rate_adjustment(sub_index)
     local currentSpeed = vlc.var.get(input,"rate")
     local speedup = tonumber(cfg.general.speedup)
     local updatedSpeed = tonumber(cfg.general.rate)
+    local maxdiff = tonumber(cfg.general.maxdiff)
 
     actual_time = get_elapsed_time()
     vlc.msg.dbg("Current rate: "..vlc.var.get(input,"rate"))
@@ -114,7 +119,7 @@ function rate_adjustment(sub_index)
         --if we are in the middle from two consecutive subs return and avoid the while/reindexing
         --log_msg("Where are we: between two subs")
         --don't change the rate if two subs are near
-        if currentSpeed ~= speedup and (subtitles[sub_index + 1][1] - subtitles[sub_index][2]) >= MAXTIMEDIFFERENCE then
+        if currentSpeed ~= speedup and (subtitles[sub_index + 1][1] - subtitles[sub_index][2]) >= maxdiff then
             vlc.var.set(input, "rate", speedup)
         end
     elseif actual_time >= subtitles[sub_index + 1][1] and actual_time <= subtitles[sub_index + 1][2] then
@@ -159,6 +164,7 @@ function looper()
     cfg = load_config()
     cfg.general.speedup = 1
     cfg.general.rate = 1
+    cfg.general.maxdiff = 5  --Time in seconds
     cfg.status.enabled = false
     cfg.status.restarted = true
     save_config(cfg)
@@ -270,6 +276,7 @@ function default_config()
     data.general = {}
     data.general.speedup = 1
     data.general.rate = 1
+    data.general.maxdiff = 5  --Time in seconds
     data.status = {}
     data.status.restarted = true
     return data

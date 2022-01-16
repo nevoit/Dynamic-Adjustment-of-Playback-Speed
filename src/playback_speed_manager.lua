@@ -23,7 +23,8 @@ INSTALLATION directory:
 --]]----------------------------------------
 
 speedupTable = {"1", "1.50", "2", "2.50", "3", "3.50", "4"}
-rateTable = {"1", "0.9", "0.85", "0.80", "0.75", "0.70", "0.65", "0.60", "0.55", "0.50"}
+rateTable = {"1.5", "1.25", "1", "0.9", "0.85", "0.80", "0.75", "0.70", "0.65", "0.60", "0.55", "0.50"}
+maxdiffTable = {"2", "5", "10", "30", "45", "60"}
 
 DIALOG_ENABLE = 1
 DIALOG_RESTART = 2
@@ -66,6 +67,7 @@ function deactivate()
     cfg.status.enabled = false
     cfg.general.speedup = "1"
     cfg.general.rate = "1"
+    cfg.general.maxdiff = "5"
     save_config(cfg)
 end
 
@@ -146,6 +148,7 @@ function create_dialog_settings()
 
     -- *******
 
+    -- Rate
     dlg:add_label("Playback speed (subtitles): ", 1, 3, 1, 1)
     dd_rate = dlg:add_dropdown(2, 3, 2, 1)
     dd_rate:add_value(tostring(cfg.general.rate)) -- Workaround to show the current value reliably (set_text is not reliable)
@@ -153,7 +156,21 @@ function create_dialog_settings()
         dd_rate:add_value(v, i)
     end
     dd_rate:set_text(tostring(cfg.general.rate)) -- Required otherwise it is not possible to save sometimes
-    cb_extraintf = dlg:add_check_box("Loop interface enabled", true, 1, 5, 1, 1)
+    -- *******
+
+    -- Maximum difference
+    dlg:add_label("Maximum difference (between subtitles): ", 1, 5, 1, 1)
+    dd_maxdiff = dlg:add_dropdown(2, 5, 2, 1)
+    dd_maxdiff:add_value(tostring(cfg.general.maxdiff)) -- Workaround to show the current value reliably (set_text is not reliable)
+    for i, v in ipairs(maxdiffTable) do
+        dd_maxdiff:add_value(v, i)
+    end
+    dd_maxdiff:set_text(tostring(cfg.general.maxdiff)) -- Required otherwise it is not possible to save sometimes
+
+    -- *******
+
+
+    cb_extraintf = dlg:add_check_box("Loop interface enabled", true, 1, 7, 1, 1)
     dlg:add_button("Save", on_click_save, 2, 6, 1, 1)
     dlg:add_button("Cancel", on_click_cancel , 3, 6, 1, 1)
 end
@@ -189,6 +206,7 @@ function on_click_save()
         vlc.config.set("lua-intf", "")
         cfg.general.speedup = "1"
         cfg.general.rate = "1"
+        cfg.general.maxdiff = "5"
         save_config(cfg)
         vlc.deactivate()
         return
@@ -196,6 +214,7 @@ function on_click_save()
     
     cfg.general.speedup = dd_speedup:get_text()
     cfg.general.rate = dd_rate:get_text()
+    cfg.general.maxdiff = dd_maxdiff:get_text()
     save_config(cfg)
     dlg:hide()
 end
@@ -267,6 +286,7 @@ function default_config()
     data.general = {}
     data.general.speedup = 1
     data.general.rate = 1
+    data.general.maxdiff = 5
     data.status = {}
     data.status.enabled = true
     data.status.restarted = true
