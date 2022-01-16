@@ -1,6 +1,6 @@
 # Dynamic-Adjustment-of-Playback-Speed
 
-A VLC extension increases the playback speed between the dialogs based on the video's subtitle.
+A VLC extension that increases the playback speed between the dialogs based on the video's subtitle.
 
 The code was initially written by Michele Gaiarin  ([gaiazdev@gmail.com](gaiazdev@gmail.com)) and Simone Gaiarin ([simgunz@gmail.com](simgunz@gmail.com)) and can be found on Github: 
 [Playback Speed Manager](https://github.com/ilgaiaz/playback-speed-manager).
