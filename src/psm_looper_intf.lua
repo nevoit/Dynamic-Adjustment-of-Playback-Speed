@@ -55,6 +55,8 @@ function load_subtitles()
         --If the text is empty then add a space
         if text:find('%[') and text:find('%]') then
             vlc.msg.dbg("continued since the text is: "..text)
+        elseif text:find('%♪') then
+            vlc.msg.dbg("continued since the text is: "..text)
         else
             if text == "" then
                 text ="  "

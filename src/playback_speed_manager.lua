@@ -137,9 +137,20 @@ function create_dialog_settings()
 
     dlg = vlc.dialog(descriptor().title .. " > Settings")
 
+
+    -- Maximum difference
+    dlg:add_label("Minimum duration between dialogs (seconds): ", 1, 1, 1, 1)
+    dd_maxdiff = dlg:add_dropdown(2, 1, 2, 1)
+    dd_maxdiff:add_value(tostring(cfg.general.maxdiff)) -- Workaround to show the current value reliably (set_text is not reliable)
+    for i, v in ipairs(maxdiffTable) do
+        dd_maxdiff:add_value(v, i)
+    end
+    dd_maxdiff:set_text(tostring(cfg.general.maxdiff)) -- Required otherwise it is not possible to save sometimes
+    -- *******
+
     -- SPEEDUP
-    dlg:add_label("Playback speed (no subtitles): ", 1, 1, 1, 1)
-    dd_speedup = dlg:add_dropdown(2, 1, 2, 1)
+    dlg:add_label("Playback speed between dialogs: ", 1, 3, 1, 1)
+    dd_speedup = dlg:add_dropdown(2, 3, 2, 1)
     dd_speedup:add_value(tostring(cfg.general.speedup)) -- Workaround to show the current value reliably (set_text is not reliable)
     for i, v in ipairs(speedupTable) do
         dd_speedup:add_value(v, i)
@@ -149,26 +160,14 @@ function create_dialog_settings()
     -- *******
 
     -- Rate
-    dlg:add_label("Playback speed (subtitles): ", 1, 3, 1, 1)
-    dd_rate = dlg:add_dropdown(2, 3, 2, 1)
+    dlg:add_label("Playback speed in dialogs: ", 1, 5, 1, 1)
+    dd_rate = dlg:add_dropdown(2, 5, 2, 1)
     dd_rate:add_value(tostring(cfg.general.rate)) -- Workaround to show the current value reliably (set_text is not reliable)
     for i, v in ipairs(rateTable) do
         dd_rate:add_value(v, i)
     end
     dd_rate:set_text(tostring(cfg.general.rate)) -- Required otherwise it is not possible to save sometimes
     -- *******
-
-    -- Maximum difference
-    dlg:add_label("Maximum difference (between subtitles): ", 1, 5, 1, 1)
-    dd_maxdiff = dlg:add_dropdown(2, 5, 2, 1)
-    dd_maxdiff:add_value(tostring(cfg.general.maxdiff)) -- Workaround to show the current value reliably (set_text is not reliable)
-    for i, v in ipairs(maxdiffTable) do
-        dd_maxdiff:add_value(v, i)
-    end
-    dd_maxdiff:set_text(tostring(cfg.general.maxdiff)) -- Required otherwise it is not possible to save sometimes
-
-    -- *******
-
 
     cb_extraintf = dlg:add_check_box("Loop interface enabled", true, 1, 7, 1, 1)
     dlg:add_button("Save", on_click_save, 2, 6, 1, 1)
