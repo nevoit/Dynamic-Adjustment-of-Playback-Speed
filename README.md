@@ -17,6 +17,10 @@ I forked the project to add more modifications and improve this excellent extens
 * Writing a regex for music, song title, sound effect description, or more things (?).
 * Adding to option to the user decide whether to ignore the music, song title, or sound effect description or not.
 
+ 
+ 
+  
+
 # Playback Speed Manager's README (The Original Repository)
 
 It was initially developed with the purpose to facilitating a user with the listening of a new language by reducing the speed during a dialogue.  
