@@ -1,14 +1,16 @@
 # Dynamic-Adjustment-of-Playback-Speed
 
-This VLC extenstion increases the playback speed when there are no subtitles in the video, which can save you time between the scenes.
+This VLC extenstion increases the playback speed when there are no subtitles in the video, which can save you time between dialogs.
 The code was initially written by Michele Gaiarin  ([gaiazdev@gmail.com](gaiazdev@gmail.com)) and Simone Gaiarin ([simgunz@gmail.com](simgunz@gmail.com)) and can be found here: 
 [Playback Speed Manager](https://github.com/ilgaiaz/playback-speed-manager).
 I forked the project to add more modifications and improve this excellent extension.
 
 ## My Modifications
+* 
 
 
-## Original Repository - Playback speed manager
+# Playback Speed Manager's README (The Original Repository)
+
 It was initially developed with the purpose to facilitating a user with the listening of a new language by reducing the speed during a dialogue.  
 It was later modified to use it as the extension [Time Saver](https://addons.videolan.org/content/show.php?content=169314) (that is no more available on VLC 3.0).
 
