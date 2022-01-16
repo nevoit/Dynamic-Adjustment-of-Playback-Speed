@@ -7,8 +7,8 @@ I forked the project to add more modifications and improve this excellent extens
 
 ## My Modifications
 * Adding the option to the user to determine the minimum duration between dialogs before speeding up (for example, 10 seconds means that the dialog should be with no subtitles for 10 seconds). Initially, it was defined automatically and statically to 3 seconds (the user could not use this parameter).
-* Ignoring music by skipping subtitles that include the character "♪"
-* Ignoring square brackets ("[" and "]"), which indicate a song title or sound effect description
+* Ignoring music by skipping subtitles that include the character "♪", which means they consider as "between dialogs".
+* Ignoring square brackets ("[" and "]"), which indicate a song title or sound effect description, which means they consider as "between dialogs".
 
 ![modifications](img/modifications.png)
 
