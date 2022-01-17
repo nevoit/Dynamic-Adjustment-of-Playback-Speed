@@ -24,7 +24,7 @@ INSTALLATION directory:
 
 speedupTable = {"1", "1.50", "2", "2.50", "3", "3.50", "4"}
 rateTable = {"1.5", "1.25", "1", "0.9", "0.85", "0.80", "0.75", "0.70", "0.65", "0.60", "0.55", "0.50"}
-maxdiffTable = {"2", "5", "10", "30", "45", "60"}
+maxdiffTable = {"5", "10", "15", "20", "25", "30", "45", "60", "120", "180", "240"}
 
 DIALOG_ENABLE = 1
 DIALOG_RESTART = 2
@@ -65,9 +65,9 @@ end
 
 function deactivate()
     cfg.status.enabled = false
-    cfg.general.speedup = "1"
+    cfg.general.speedup = "2"
     cfg.general.rate = "1"
-    cfg.general.maxdiff = "5"
+    cfg.general.maxdiff = "10"
     save_config(cfg)
 end
 
@@ -203,9 +203,9 @@ function on_click_save()
     --Verify the checkbox and set the config file
     if not cb_extraintf:get_checked() then
         vlc.config.set("lua-intf", "")
-        cfg.general.speedup = "1"
+        cfg.general.speedup = "2"
         cfg.general.rate = "1"
-        cfg.general.maxdiff = "5"
+        cfg.general.maxdiff = "10"
         save_config(cfg)
         vlc.deactivate()
         return
@@ -283,9 +283,9 @@ end
 function default_config()
     local data = {}
     data.general = {}
-    data.general.speedup = 1
+    data.general.speedup = 2
     data.general.rate = 1
-    data.general.maxdiff = 5
+    data.general.maxdiff = 10
     data.status = {}
     data.status.enabled = true
     data.status.restarted = true

@@ -97,6 +97,10 @@ function rate_adjustment(sub_index)
     local maxdiff = tonumber(cfg.general.maxdiff)
 
     actual_time = get_elapsed_time()
+    time_gap = tonumber(speedup)
+    prev_subtitle_start_early = subtitles[sub_index][1] - time_gap
+    prev_subtitle_end_late = subtitles[sub_index][2] + time_gap
+    next_subtitle_start_early = subtitles[sub_index + 1][1] - time_gap
     vlc.msg.dbg("Current rate: "..vlc.var.get(input,"rate"))
     if  subtitles[sub_index + 1] == nil then
         --check for the last subs and avoid error with the table subtitles
@@ -111,20 +115,20 @@ function rate_adjustment(sub_index)
             vlc.var.set(input, "rate", speedup)
         end
         sub_index = 1
-    elseif actual_time >= subtitles[sub_index][1] and actual_time <= subtitles[sub_index][2] then
+    elseif actual_time >= prev_subtitle_start_early and actual_time <= subtitles[sub_index][2] then         ----  (start_time=id1)| [here] CURRENT SUBTITLE [here] | (end_time=id2) -----
         --if find the next sub return the index and avoid the while/reindexing
-        --log_msg("Where are we: in the current sub")
+        log_msg("Where are we: in the current sub"..subtitles[sub_index][1])
         if currentSpeed ~= updatedSpeed then
             vlc.var.set(input, "rate", updatedSpeed)
         end
-    elseif actual_time > subtitles[sub_index][2] and actual_time < subtitles[sub_index + 1][1] then
+    elseif actual_time > prev_subtitle_end_late and actual_time < next_subtitle_start_early then   ----  |PREV SUBTITLE|(end_time=id2)   --  [here]  --   (start_time=id1)|NEXT SUBTITLE| -----
         --if we are in the middle from two consecutive subs return and avoid the while/reindexing
         --log_msg("Where are we: between two subs")
         --don't change the rate if two subs are near
         if currentSpeed ~= speedup and (subtitles[sub_index + 1][1] - subtitles[sub_index][2]) >= maxdiff then
             vlc.var.set(input, "rate", speedup)
         end
-    elseif actual_time >= subtitles[sub_index + 1][1] and actual_time <= subtitles[sub_index + 1][2] then
+    elseif actual_time >= next_subtitle_start_early and actual_time <= subtitles[sub_index + 1][2] then     ----  (start_time=id1)| [here] NEXT SUBTITLE [here] | (end_time=id2) -----
          --if we are in the next Sub update sub_index
         --log_msg("Where are we: in the next sub")
         if currentSpeed ~= updatedSpeed then
@@ -164,9 +168,9 @@ function looper()
     
     -- This settings are set as soon as VLC starts, before any user interaction
     cfg = load_config()
-    cfg.general.speedup = 1
+    cfg.general.speedup = 2
     cfg.general.rate = 1
-    cfg.general.maxdiff = 5  --Time in seconds
+    cfg.general.maxdiff = 10  --Time in seconds
     cfg.status.enabled = false
     cfg.status.restarted = true
     save_config(cfg)
@@ -276,9 +280,9 @@ end
 function default_config()
     local data = {}
     data.general = {}
-    data.general.speedup = 1
+    data.general.speedup = 2
     data.general.rate = 1
-    data.general.maxdiff = 5  --Time in seconds
+    data.general.maxdiff = 10  --Time in seconds
     data.status = {}
     data.status.restarted = true
     return data
