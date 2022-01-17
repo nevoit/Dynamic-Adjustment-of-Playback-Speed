@@ -11,8 +11,8 @@ I forked the project to add more options and improve this extension.
 * Ignoring music by skipping subtitles that include the character "♪", which means they consider as "between dialogs".
 * Ignoring square brackets ("[" and "]"), which indicate a song title or sound effect description - consider as "between dialogs".
 * Adding playback speed options of x1.25 and x1.5 in dialogs.
-* Increasing the playback speed a couple of seconds after the current subtitle presents to allow the user to read the subtitle, in which the number of seconds depends on the high playback speed.
-* Decreasing the playback speed a couple of seconds before the next subtitle allows the user to read the current subtitle, in which the number of seconds depends on the high playback speed.
+* Increasing the playback speed a couple of seconds after the current subtitle presents to allow the user to read the subtitle, in which the number of seconds depends on the pre-defined maximum playback speed.
+* Decreasing the playback speed a couple of seconds before the next subtitle allows the user to read the current subtitle, in which the number of seconds depends on the pre-defined maximum playback speed.
 
 ![modifications](img/modifications.png)
 
