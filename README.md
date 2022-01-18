@@ -1,6 +1,6 @@
 # Dynamic-Adjustment-of-Playback-Speed
 
-This VLC extension increases the playback speed between the dialogs to save you time.
+This VLC extension increases the playback speed between the dialogues to save you time.
 This extension works with video subtitles and assumes the subtitles are synchronized to the video.
 
 The code was initially written by Michele Gaiarin  ([gaiazdev@gmail.com](gaiazdev@gmail.com)) and Simone Gaiarin ([simgunz@gmail.com](simgunz@gmail.com)) and can be found on Github: 
@@ -8,10 +8,10 @@ The code was initially written by Michele Gaiarin  ([gaiazdev@gmail.com](gaiazde
 I forked the project to add more options and improve this extension.
 
 ## My Modifications
-* Adding the option to the user to determine the minimum duration between dialogs before speeding up (for example, 10 seconds means that the dialog should be with no subtitles for 10 seconds). Initially, it was defined automatically and statically to 3 seconds (the user could not use this parameter).
-* Ignoring music by skipping subtitles that include the character "♪", which means they consider as "between dialogs".
-* Ignoring square brackets ("[" and "]"), which indicate a song title or sound effect description - consider as "between dialogs".
-* Adding playback speed options of x1.25 and x1.5 in dialogs.
+* Adding the option to the user to determine the minimum duration between dialogues before speeding up (for example, 10 seconds means that the dialogue should be with no subtitles for 10 seconds). Initially, it was defined automatically and statically to 3 seconds (the user could not use this parameter).
+* Ignoring music by skipping subtitles that include the character "♪", which means they consider as "between dialogues".
+* Ignoring square brackets ("[" and "]"), which indicate a song title or sound effect description - consider as "between dialogues".
+* Adding playback speed options of x1.25 and x1.5 in dialogues.
 * Increasing the playback speed a couple of seconds after the current subtitle presents to allow the user to read the subtitle, in which the number of seconds depends on the pre-defined maximum playback speed.
 * Decreasing the playback speed a couple of seconds before the next subtitle allows the user to read the current subtitle, in which the number of seconds depends on the pre-defined maximum playback speed.
 
