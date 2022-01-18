@@ -3,7 +3,7 @@
 This VLC extension increases the playback speed between the dialogues to save you time.
 This extension works with video subtitles and assumes the subtitles are synchronized to the video.
 
-**English and Non-English subtitles** can be used. 
+**English and non-English subtitles** can be used. 
 Non-English subtitles should be encoded with UTF-8 with BOM.
 To do so, open your subtitles with Notepad, click on "save as," and then change the encoding to UTF-8 with BOM.
 
