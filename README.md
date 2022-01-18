@@ -3,6 +3,9 @@
 This VLC extension increases the playback speed between the dialogues to save you time.
 This extension works with video subtitles and assumes the subtitles are synchronized to the video.
 
+**Non-English subtitles** can be used also but should be encoded with UTF-8 with BOM.
+To do so, open your subtitles with Notepad, click on "save as," and then change the encoding to UTF-8 with BOM.
+
 The code was initially written by Michele Gaiarin  ([gaiazdev@gmail.com](gaiazdev@gmail.com)) and Simone Gaiarin ([simgunz@gmail.com](simgunz@gmail.com)) and can be found on Github: 
 [Playback Speed Manager](https://github.com/ilgaiaz/playback-speed-manager).
 I forked the project to modify this extension and add with my ideas.
