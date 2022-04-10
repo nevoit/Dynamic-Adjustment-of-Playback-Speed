@@ -3,6 +3,8 @@
 This VLC extension increases the playback speed between the dialogues to save you time.
 This extension works with video subtitles and assumes the subtitles are synchronized to the video.
 
+**Motivation** - Academy Awards committees tend to reward long films over shorter ones, and thus sometimes, directors and studios aim for longer running times (Source: ["No Time to Pee – why today’s blockbusters are just too long"](https://www.independent.co.uk/arts-entertainment/films/features/long-blockbusters-no-time-to-die-b1938980.html)). 
+
 **English and non-English subtitles** can be used. 
 Non-English subtitles should be encoded with UTF-8 with BOM.
 To do so, open your subtitles with Notepad, click on "save as," and then change the encoding to UTF-8 with BOM.
