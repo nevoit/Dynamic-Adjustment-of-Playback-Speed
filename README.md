@@ -24,7 +24,7 @@ However, the extension may impact the overall tone and impact of the film. Here 
 * **Romance**: Romance films often rely on the slow, deliberate pace of the scenes to build tension and create emotional connections between characters. Increasing the playback speed between dialogues may detract from the mood and feeling of the film.
 * **Horror**: Horror films often rely on suspenseful, slow-paced scenes to build tension and scare the audience.
 
-In general, the effectiveness of the extension dependד on the individual film and the genre, as well as the user's personal preferences and settings.
+In general, the effectiveness of the extension depends on the individual film and the genre, as well as the user's personal preferences and settings.
 The user can determine the minimum duration between dialogues before speeding up, for example, 10 seconds means that the dialogue should be with no subtitles for 10 seconds. Additionally, the user has the option to choose the speed of the video when there are no subtitles and the speed of the video when a subtitle is shown on the screen. It's always best to consider the nature of the film and how increasing the playback speed may impact the overall experience.
 
 ## Installation
