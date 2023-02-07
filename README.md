@@ -3,6 +3,8 @@
 This VLC extension increases the playback speed between the dialogues to save you time.
 This extension works with video subtitles and assumes the subtitles are synchronized to the video.
 
+![modifications](img/modifications.png)
+
 ## Motivation
 
 The Academy Awards committees tend to have a bias towards awarding longer films over shorter ones (Source: ["No Time to Pee – why today’s blockbusters are just too long"](https://www.independent.co.uk/arts-entertainment/films/features/long-blockbusters-no-time-to-die-b1938980.html)). This has led to directors and studios striving for longer running times in their productions, in hopes of being recognized by the awards. However, this can often result in films being unnecessarily long, leading to a waste of time for the audience.
@@ -117,8 +119,6 @@ I forked the project to modify this extension and add with my ideas.
 * Smoothing the playback speed increasing\decreasing
   - Increasing the playback speed a couple of seconds after the current subtitle presents to allow the user to read the subtitle, in which the number of seconds depends on the pre-defined maximum playback speed.
   - Decreasing the playback speed a couple of seconds before the next subtitle allows the user to read the current subtitle, in which the number of seconds depends on the pre-defined maximum playback speed.
-
-![modifications](img/modifications.png)
 
 ## Things To Do
 * Fixing the VLC freezing issue. Every time the playback speed changes, the video freezes for a second. This problem is more noticeable when the difference between the playback speeds is higher (e.g., changing from 1x to 4x, or vice versa). It is a problem with VLC, not with this extension, still frustrating.
