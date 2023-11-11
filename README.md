@@ -50,7 +50,7 @@ Put the file `playback_speed_manager.lua` in :
 
 
 
-Put `psm_looper_intf.lua` in :  
+Put `psm_looper_intf.lua` in (create `intf` folder in case it doesn't exist):  
 
 - **Windows (all users)**
 %ProgramFiles%\VideoLAN\VLC\lua\intf\
