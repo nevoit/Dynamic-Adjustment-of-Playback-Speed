@@ -22,8 +22,8 @@ INSTALLATION directory:
 * Mac OS X (current user): /Users/%your_name%/Library/Application Support/org.videolan.vlc/lua/extensions/
 --]]----------------------------------------
 
-speedupTable = {"1", "1.50", "2", "2.50", "3", "3.50", "4"}
-rateTable = {"1", "1.1", "1.15", "1.2", "1.25", "1.5", "1.75", "2"}
+speedupTable = {"1", "1.25", "1.50", "2", "2.50", "3", "3.50", "4"}
+rateTable = {"1", "1.1", "1.2", "1.3", "1.5", "1.75", "2"}
 maxdiffTable = {"5", "10", "15", "20", "25", "30", "45", "60", "120", "180", "240"}
 
 DIALOG_ENABLE = 1
@@ -66,8 +66,8 @@ end
 function deactivate()
     cfg.status.enabled = false
     cfg.general.speedup = "2"
-    cfg.general.rate = "1"
-    cfg.general.maxdiff = "10"
+    cfg.general.rate = "1.2"
+    cfg.general.maxdiff = "15"
     save_config(cfg)
 end
 
@@ -204,8 +204,8 @@ function on_click_save()
     if not cb_extraintf:get_checked() then
         vlc.config.set("lua-intf", "")
         cfg.general.speedup = "2"
-        cfg.general.rate = "1"
-        cfg.general.maxdiff = "10"
+        cfg.general.rate = "1.2"
+        cfg.general.maxdiff = "15"
         save_config(cfg)
         vlc.deactivate()
         return
@@ -284,8 +284,8 @@ function default_config()
     local data = {}
     data.general = {}
     data.general.speedup = 2
-    data.general.rate = 1
-    data.general.maxdiff = 10
+    data.general.rate = 1.2
+    data.general.maxdiff = 15
     data.status = {}
     data.status.enabled = true
     data.status.restarted = true

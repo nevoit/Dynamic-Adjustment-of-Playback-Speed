@@ -100,7 +100,7 @@ function rate_adjustment(sub_index)
     time_gap = tonumber(speedup)
     prev_subtitle_start_early = subtitles[sub_index][1] - time_gap
     prev_subtitle_end_late = subtitles[sub_index][2] + time_gap
-    next_subtitle_start_early = subtitles[sub_index + 1][1] - time_gap
+    next_subtitle_start_early = subtitles[sub_index + 1][1] - 1 - time_gap
     vlc.msg.dbg("Current rate: "..vlc.var.get(input,"rate"))
     if  subtitles[sub_index + 1] == nil then
         --check for the last subs and avoid error with the table subtitles
@@ -169,8 +169,8 @@ function looper()
     -- This settings are set as soon as VLC starts, before any user interaction
     cfg = load_config()
     cfg.general.speedup = 2
-    cfg.general.rate = 1
-    cfg.general.maxdiff = 10  --Time in seconds
+    cfg.general.rate = 1.2
+    cfg.general.maxdiff = 15  --Time in seconds
     cfg.status.enabled = false
     cfg.status.restarted = true
     save_config(cfg)
@@ -281,8 +281,8 @@ function default_config()
     local data = {}
     data.general = {}
     data.general.speedup = 2
-    data.general.rate = 1
-    data.general.maxdiff = 10  --Time in seconds
+    data.general.rate = 1.2
+    data.general.maxdiff = 15  --Time in seconds
     data.status = {}
     data.status.restarted = true
     return data
